@@ -30,10 +30,6 @@ const myBotsFn = async (app) => {
                 })
                     .then(() => console.log(`hook for ${tk.botname} set`))
                     .catch(e => console.log(e.message, e))
-                await bot.api.setMyCommands([
-                    { command: 'betslip', description: '🔥 Bet of the Day' },
-                    { command: 'hookup', description: '🍑 Beautiful Escorts' },
-                ])
                 app.use(hookPath, webhookCallback(bot, 'express'))
             }
 
