@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@grammyjs/auto-retry": "^2.0.1",
+    "@grammyjs/ratelimiter": "^1.2.0",
     "axios": "^1.4.0",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.2",

@@ -3,7 +3,7 @@ const { Bot, webhookCallback } = require("grammy");
 const { autoRetry } = require("@grammyjs/auto-retry");
 
 const checkPriceFn = async (app, TKN, Path, TKN_NAME, TKN_SYMBOL) => {
-    const priceModel = require('../database/pricebots')
+    const priceModel = require('../0-database/pricebots')
     const bot = new Bot(TKN);
 
     const imp = {

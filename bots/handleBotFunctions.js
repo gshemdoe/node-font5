@@ -1,6 +1,6 @@
 const handlePriceBots = async (app) => {
     const call_price_fn = require('./pricebots/bot')
-    const priceModel = require('./database/pricebots')
+    const priceModel = require('./0-database/pricebots')
 
 
     try {

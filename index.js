@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const getRouter = require('./routes/get-routes')
 const { handlePriceBots } = require('./bots/handleBotFunctions')
+const { CPABots } = require('./bots/1-mzansi/bot')
 
 const app = express()
 
@@ -20,8 +21,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'))
 app.set('trust proxy', true) //our app is hosted on server using proxy to pass user request
-//bots
+//webhookbots
 handlePriceBots(app)
+CPABots(app)
 app.use(getRouter)
 
 app.listen(process.env.PORT || 3000, () => console.log('Listen to port 3000'))
