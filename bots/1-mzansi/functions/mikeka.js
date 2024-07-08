@@ -28,7 +28,7 @@ const sendMkeka3 = async (ctx, delay, bot, imp) => {
                 odds = (odds * m.odds).toFixed(2)
             }
 
-            let finaText = txt + `<b>🔥 Total Odds: ${Number(odds).toLocaleString('en-US')}</b>\n\n•••••\n\n<blockquote>Betslip was prepared at <b>BetWay.</b> Get 200% bonus on your first deposit. Open the link below to claim your bonus</blockquote>\n\n<b>👤 Get Bonus!\n<a href="${bw}">https://betway.com/promo/bonus\nhttps://betway.com/promo/bonus</a>\n\n\n•••</b>`
+            let finaText = txt + `<b>🔥 Total Odds: ${Number(odds).toLocaleString('en-US')}</b>\n\n•••••\n\n<blockquote>Betslip was prepared at <b>22Bet.</b> Get 200% bonus on your first deposit. Open the link below to claim your bonus</blockquote>\n\n<b>👤 Get Bonus!\n<a href="${ke}">https://22bet.com/promo/bonus\nhttps://22bet.com/promo/bonus</a>\n\n\n•••</b>`
 
             await ctx.reply(finaText, { parse_mode: 'HTML', disable_web_page_preview: true })
         } else {
