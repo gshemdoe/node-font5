@@ -109,17 +109,26 @@ const AutoAcceptorBot = async (app) => {
                 let chan_title = ctx.chatJoinRequest.chat.title
                 let userid = ctx.chatJoinRequest.from.id
                 let user_fname = ctx.chatJoinRequest.from.first_name
-                let message = `Hi <b>${user_fname},</b>\nGreat news! Your request to join <b>${chan_title}</b> has been approved. Welcome aboard!\n\n<b>Show appreciation below 😉</b>`
+                let linkName = ctx.chatJoinRequest.invite_link?.name
+                let message1 = `Hi <b>${user_fname},</b>\nGreat news! Your request to join <b>${chan_title}</b> has been approved. Welcome aboard!\n\n<b>Show appreciation below 😉</b>`
+                let message2 = `Hi <b>${user_fname},</b>\nGreat news! Your request to join <b>${chan_title}</b> has been received. You will be added to the channel soon!\n\n<b>Show appreciation below 😉</b>`
                 let inline_keyboard = new InlineKeyboard()
                     .url('😍 Okay! Thank you', `t.me/${botname}?start=thank_you`).row()
 
-                //send message to user
-                await ctx.api.sendMessage(userid, message, { reply_markup: inline_keyboard })
+                if (linkName && linkName == 'for CPAGrip') {
+                    //send message to CPA ofa user
+                    await ctx.api.sendMessage(userid, message2, { reply_markup: inline_keyboard })
+                } else {
+                    //send message to user
+                    await ctx.api.sendMessage(userid, message1, { reply_markup: inline_keyboard })
 
-                //approve request
-                await ctx.api.approveChatJoinRequest(chan_id, userid)
+                    //approve request
+                    await ctx.api.approveChatJoinRequest(chan_id, userid)
+                }
             } catch (error) {
-                console.log(error.message)
+                console.log(error)
+                bot.api.sendMessage(741815228, error.message)
+                    .catch(e => console.log(e.message))
             }
         })
     } catch (error) {
