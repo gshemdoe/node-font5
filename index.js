@@ -4,6 +4,7 @@ require('dotenv').config()
 const getRouter = require('./routes/get-routes')
 const { handlePriceBots } = require('./bots/handleBotFunctions')
 const { CPABots } = require('./bots/1-mzansi/bot')
+const { AutoAcceptorBot } = require('./bots/2-AutoAcceptor/bot')
 
 const app = express()
 
@@ -22,8 +23,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/public'))
 app.set('trust proxy', true) //our app is hosted on server using proxy to pass user request
 //webhookbots
-handlePriceBots(app)
-CPABots(app)
+if (process.env.ENVIRONMENT == 'production') {
+    handlePriceBots(app)
+    CPABots(app)
+}
+AutoAcceptorBot(app)
 app.use(getRouter)
 
 app.listen(process.env.PORT || 3000, () => console.log('Listen to port 3000'))
