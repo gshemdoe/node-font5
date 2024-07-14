@@ -101,7 +101,7 @@ const myBotsFn = async (app) => {
             bot.command(['hookup', 'escorts'], async ctx => {
                 try {
                     let url = 'https://getafilenow.com/1584699'
-                    let txt = `Unlock the largest library of adult videos and leakage sex tapes as well as our private groups for escorts and hookups.\n\nBelow, prove your are not a robot to unlock the group invite link.`
+                    let txt = `Unlock the largest library of adult videos and leakage sex tapes + our private groups for escorts and hookups.\n\nBelow, prove your are not a robot to unlock the group invite link.`
                     let rpm = {
                         inline_keyboard: [
                             [
