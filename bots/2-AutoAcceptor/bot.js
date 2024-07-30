@@ -52,12 +52,6 @@ const AutoAcceptorBot = async (app) => {
 
                     // Send a message to the user
                     await ctx.reply(`Hi! Thanks for using me \n\nYou can use this bot to automatically accept user join requests for your channels and groups.\n\nTo set up instant user acceptance, simply add this bot to your channel or group by clicking the <b>"Add to Channel"</b> or <b>"Add to Group"</b> button below.`, { reply_markup: inline_keyboard });
-                } else {
-                    let payload = ctx.match
-                    let groups = ['group', 'supergroup', 'private']
-                    if (groups.includes(ctx.chat.type) && payload && payload == 'g_accepting') {
-                        await ctx.reply(`Congratulations! The bot has been successfully added to your group and can now instantly accept new requests.\n\nTo ensure the bot continues to work seamlessly, please make sure that the <b>"Manage Group"</b> and <b>"Invite Users"</b> privileges are never turned off.`)
-                    }
                 }
             } catch (error) {
                 console.error(error.message, error)
